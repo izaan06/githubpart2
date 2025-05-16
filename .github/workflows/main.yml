@@ -1,1 +1,25 @@
+name: Executar programa diàriament
+
+on:
+  schedule:
+    - cron: '59 23 * * *'  # Cada dia a les 23:59 UTC
+
+jobs:
+  executar:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Instal·lar dependències
+      run: |
+        pip install requests
+
+    - name: Executar script
+      run: |
+        python temperatures.py
 

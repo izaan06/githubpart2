@@ -1,8 +1,9 @@
-name: Executar programa diàriament
+name: Executar cada 5 minuts
 
 on:
   schedule:
-    - cron: '59 23 * * *'  # Cada dia a les 23:59 UTC
+    - cron: '*/5 * * * *'  
+  workflow_dispatch:      
 
 jobs:
   executar:
@@ -22,4 +23,3 @@ jobs:
     - name: Executar script
       run: |
         python temperatures.py
-

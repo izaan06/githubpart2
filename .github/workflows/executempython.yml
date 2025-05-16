@@ -2,8 +2,11 @@ name: Executar cada 5 minuts
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  
-  workflow_dispatch:      
+    - cron: '*/5 * * * *'  # Cada 5 minuts
+  workflow_dispatch:       
+
+permissions:
+  contents: write  
 
 jobs:
   executar:
@@ -22,4 +25,4 @@ jobs:
 
     - name: Executar script
       run: |
-        python temperatures.py
+        python temperatura.py
